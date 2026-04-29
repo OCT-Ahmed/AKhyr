@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -9,6 +10,11 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+const inter = Inter({
+  variable: "--font-Inter",
   subsets: ["latin"],
 });
 
@@ -25,21 +31,21 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
-        <header className="flex items-center justify-between w-full h-18 py-4 border border-gray-600 px-18">
-          <h1 className="text-xl font-bold text-purple-700">Akhyr</h1>
+      <body className="min-h-full flex flex-col text-base">
+        <header className="flex items-center justify-between w-full h-18 py-4 border-b-[0.2px] border-white/5 px-18">
+          <h1 className="text-xl font-bold text-purple-700 cursor-pointer">Akhyr</h1>
         <nav className="">
           <ul className="flex items-center justify-center gap-4">
-            <li className="text-black-900 px-2 py-2 hover:bg-white">About</li>
-            <li className="text-black px-2 py-2 hover:bg-white">Portfolio</li>
-            <li className="text-black px-2 py-2 hover:bg-white">My Story</li>
-            <li className="text-black px-2 py-2 hover:bg-white">My projects</li>
-            <li className="text-black px-2 py-2 hover:bg-white">Contact</li>
+            <Link href="#"><li className="text-base px-6 py-1 hover:bg-white/10 hover:filter-blur-sm rounded-2xl hover:text-primary transition-all duration-300">About</li></Link>
+            <Link href="#"><li className="text-base px-6 py-1 hover:bg-white/10 hover:filter-blur-xl rounded-2xl hover:text-primary transition-all duration-300">Portfolio</li></Link>
+            <Link href="#"><li className="text-base px-6 py-1 hover:bg-white/10 hover:filter-blur-xl rounded-2xl hover:text-primary transition-all duration-300">Projects</li></Link>
+            <Link href="#"><li className="text-base px-6 py-1 hover:bg-white/10 hover:filter-blur-xl rounded-2xl hover:text-primary transition-all duration-300">My Story</li></Link>
+            <Link href="#"><li className="text-base px-6 py-1 hover:bg-white/10 hover:filter-blur-xl rounded-2xl hover:text-primary transition-all duration-300">Contact</li></Link>
             </ul>
         </nav>
-         <button className="text-white bg-purple-600 px-4 py-2 rounded-xl cursor-pointer" id="cta-button">Support Me</button>
+         <button className="text-white text-sm bg-primary px-4 py-2 rounded-full hover:bg-primary/70 transition-all duration-all cursor-pointer" id="cta-button">Support Me</button>
       </header>
         {children}
       </body>
