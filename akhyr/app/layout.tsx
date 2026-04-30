@@ -52,8 +52,8 @@ export default function RootLayout({
           </Link>
         <nav className="">
           <ul className="flex items-center justify-center gap-4">
-            <Link href="/about"><li className="text-base px-6 py-1 hover:bg-white/10 hover:filter-blur-sm rounded-2xl hover:text-primary transition-all duration-300">About</li></Link>
-            <Link href="/portfolio"><li className="text-base px-6 py-1 hover:bg-white/10 hover:filter-blur-xl rounded-2xl hover:text-primary transition-all duration-300">Portfolio</li></Link>
+            {/* <Link href="/about"><li className="text-base px-6 py-1 hover:bg-white/10 hover:filter-blur-sm rounded-2xl hover:text-primary transition-all duration-300">About</li></Link> */}
+            {/* <Link href="/portfolio"><li className="text-base px-6 py-1 hover:bg-white/10 hover:filter-blur-xl rounded-2xl hover:text-primary transition-all duration-300">Portfolio</li></Link> */}
             <Link href="/projects"><li className="text-base px-6 py-1 hover:bg-white/10 hover:filter-blur-xl rounded-2xl hover:text-primary transition-all duration-300">Projects</li></Link>
             <Link href="/story"><li className="text-base px-6 py-1 hover:bg-white/10 hover:filter-blur-xl rounded-2xl hover:text-primary transition-all duration-300">My Story</li></Link>
             <Link href="/contact"><li className="text-base px-6 py-1 hover:bg-white/10 hover:filter-blur-xl rounded-2xl hover:text-primary transition-all duration-300">Contact</li></Link>
@@ -66,7 +66,7 @@ export default function RootLayout({
           {children}
         </section>
         
-        <header className="grid grid-cols-1 md:grid-cols-3 w-full h-auto py-4 border-t-1 border-white/5 px-18">
+        <footer className="grid grid-cols-1 md:grid-cols-3 w-full h-auto py-4 border-t-1 border-white/5 px-18">
         {/* 1st-col */}
         <div className="flex flex-col items-start justify-start gap-4">
           <h1 className="text-xl font-bold text-purple-700 cursor-pointer">Akhyr</h1>
@@ -101,7 +101,7 @@ export default function RootLayout({
             </Link>
             
           </div>
-      </header>
+      </footer>
       </body>
     </html>
   );
