@@ -10,6 +10,7 @@
   --font-geist-sans: "Geist Sans", -apple-system, BlinkMachineSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-geist-mono: "Geist Mono", SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;
   --font-inter: "Inter", -apple-system, BlinkMachineSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-fragment-mono: "Fragment Mono", SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;
 }
 
 @theme inline {
@@ -21,7 +22,8 @@
   --color-primary-blue: var(--color-primary-blue);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --font-inter: var(--font-inter)
+  --font-inter: var(--font-inter);
+  --font-fragment-mono: var(--font-fragment-mono);
 }
 
 @media (prefers-color-scheme: dark) {
