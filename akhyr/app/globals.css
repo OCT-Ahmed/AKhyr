@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+:root {
+  --background: #000000;
+  --foreground: #171717;
+  --color-base: #ffffff;
+  --color-muted: #99a1af;
+  --color-primary: #8804b1;
+  --color-primary-blue: #0067bb;
+  --font-geist-sans: "Geist Sans", -apple-system, BlinkMachineSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-geist-mono: "Geist Mono", SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  --font-inter: "Inter", -apple-system, BlinkMachineSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-fragment-mono: "Fragment Mono", SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-base: var(--color-base);
+  --color-muted: var(--color-muted);
+  --color-primary: var(--color-primary);
+  --color-primary-blue: var(--color-primary-blue);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-inter: var(--font-inter);
+  --font-fragment-mono: var(--font-fragment-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--color-base);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.gradient {
+  background: linear-gradient(90deg, #8804b1, #0067bb);
+}
