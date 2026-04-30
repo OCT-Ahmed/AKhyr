@@ -59,8 +59,12 @@ export default function RootLayout({
             <Link href="/contact"><li className="text-base px-6 py-1 hover:bg-white/10 hover:filter-blur-xl rounded-2xl hover:text-primary transition-all duration-300">Contact</li></Link>
             </ul>
         </nav>
-        
-         <button className="text-white text-sm bg-primary px-4 py-2 rounded-full hover:bg-primary/70 transition-all duration-all cursor-pointer" id="cta-button">Support Me</button>
+
+          <Link href="/subscriptions">
+            <button className="text-white text-sm bg-primary px-4 py-2 rounded-full hover:bg-primary/70 transition-all duration-all cursor-pointer" id="cta-button">
+              Support Me
+            </button>
+          </Link>
         </header>
 
         <section className="mt-18">
