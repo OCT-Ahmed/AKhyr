@@ -67,7 +67,7 @@ const SubscriptionsPage = () => {
     <div className="w-full py-16 px-4 bg-[#0a0a0a] text-white font-sans">
       {/* Header Section */}
       <div className="text-center max-w-3xl mx-auto mb-16">
-        <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-400">
+        <h2 className="text-3xl md:text-5xl font-semibold h-fit mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-blue">
           Support the Journey
         </h2>
         <p className="text-gray-400 text-base md:text-lg mb-10">
