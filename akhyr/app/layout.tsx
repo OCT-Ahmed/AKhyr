@@ -44,15 +44,19 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${fragment_mono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col text-base">
-        <header className="fixed flex items-center justify-between w-full h-18 py-4 border-b-[0.2px] border-white/5 px-18">
-          <h1 className="text-xl font-bold text-purple-700 cursor-pointer">Akhyr</h1>
+        <header className="fixed z-100  flex items-center justify-between w-full h-18 py-4 backdrop-blur-3xl border-b-[0.2px] border-white/5 px-18">
+          <Link href="/" scroll={true}>
+            <h1 className="text-xl font-bold text-purple-700 cursor-pointer">
+              Akhyr
+            </h1>
+          </Link>
         <nav className="">
           <ul className="flex items-center justify-center gap-4">
-            <Link href="#"><li className="text-base px-6 py-1 hover:bg-white/10 hover:filter-blur-sm rounded-2xl hover:text-primary transition-all duration-300">About</li></Link>
-            <Link href="#"><li className="text-base px-6 py-1 hover:bg-white/10 hover:filter-blur-xl rounded-2xl hover:text-primary transition-all duration-300">Portfolio</li></Link>
-            <Link href="#"><li className="text-base px-6 py-1 hover:bg-white/10 hover:filter-blur-xl rounded-2xl hover:text-primary transition-all duration-300">Projects</li></Link>
-            <Link href="#"><li className="text-base px-6 py-1 hover:bg-white/10 hover:filter-blur-xl rounded-2xl hover:text-primary transition-all duration-300">My Story</li></Link>
-            <Link href="#"><li className="text-base px-6 py-1 hover:bg-white/10 hover:filter-blur-xl rounded-2xl hover:text-primary transition-all duration-300">Contact</li></Link>
+            <Link href="/about"><li className="text-base px-6 py-1 hover:bg-white/10 hover:filter-blur-sm rounded-2xl hover:text-primary transition-all duration-300">About</li></Link>
+            <Link href="/portfolio"><li className="text-base px-6 py-1 hover:bg-white/10 hover:filter-blur-xl rounded-2xl hover:text-primary transition-all duration-300">Portfolio</li></Link>
+            <Link href="/projects"><li className="text-base px-6 py-1 hover:bg-white/10 hover:filter-blur-xl rounded-2xl hover:text-primary transition-all duration-300">Projects</li></Link>
+            <Link href="/story"><li className="text-base px-6 py-1 hover:bg-white/10 hover:filter-blur-xl rounded-2xl hover:text-primary transition-all duration-300">My Story</li></Link>
+            <Link href="/contact"><li className="text-base px-6 py-1 hover:bg-white/10 hover:filter-blur-xl rounded-2xl hover:text-primary transition-all duration-300">Contact</li></Link>
             </ul>
         </nav>
          <button className="text-white text-sm bg-primary px-4 py-2 rounded-full hover:bg-primary/70 transition-all duration-all cursor-pointer" id="cta-button">Support Me</button>
@@ -71,11 +75,11 @@ export default function RootLayout({
           
         <nav className="">
           <ul className="flex flex-col items-start justify-start gap-4">
-            {/* <Link href="#"><li className="text-base px-6 py-1 hover:bg-white/10 hover:filter-blur-sm rounded-2xl hover:text-primary transition-all duration-300">About</li></Link>
-            <Link href="#"><li className="text-base px-6 py-1 hover:bg-white/10 hover:filter-blur-xl rounded-2xl hover:text-primary transition-all duration-300">Portfolio</li></Link>
-            <Link href="#"><li className="text-base px-6 py-1 hover:bg-white/10 hover:filter-blur-xl rounded-2xl hover:text-primary transition-all duration-300">Projects</li></Link> */}
-            <Link href="#"><li className="text-base px-6 py-1 hover:bg-white/10 hover:filter-blur-xl rounded-2xl hover:text-primary transition-all duration-300">My Story</li></Link>
-            <Link href="#"><li className="text-base px-6 py-1 hover:bg-white/10 hover:filter-blur-xl rounded-2xl hover:text-primary transition-all duration-300">Contact</li></Link>
+            {/* <Link href="/portfolio"><li className="text-base px-6 py-1 hover:bg-white/10 hover:filter-blur-sm rounded-2xl hover:text-primary transition-all duration-300">About</li></Link>
+            <Link href="/portfolio"><li className="text-base px-6 py-1 hover:bg-white/10 hover:filter-blur-xl rounded-2xl hover:text-primary transition-all duration-300">Portfolio</li></Link>
+            <Link href="projects"><li className="text-base px-6 py-1 hover:bg-white/10 hover:filter-blur-xl rounded-2xl hover:text-primary transition-all duration-300">Projects</li></Link> */}
+            <Link href="/story"><li className="text-base px-6 py-1 hover:bg-white/10 hover:filter-blur-xl rounded-2xl hover:text-primary transition-all duration-300">My Story</li></Link>
+            <Link href="/contact"><li className="text-base px-6 py-1 hover:bg-white/10 hover:filter-blur-xl rounded-2xl hover:text-primary transition-all duration-300">Contact</li></Link>
             </ul>
         </nav>
           {/* Social Media */}
