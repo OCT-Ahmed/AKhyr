@@ -3,7 +3,7 @@ import { Geist, Geist_Mono, Inter, Fragment_Mono
  } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
-import { FaLinkedinIn, FaTiktok, FaWhatsapp } from "react-icons/fa";
+import { FaGithub, FaLinkedinIn, FaTiktok, FaWhatsapp } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
 import { Mail } from "lucide-react";
 
@@ -92,6 +92,9 @@ export default function RootLayout({
             </Link>
             <Link href="https://www.linkedin.com/in/ahmed-elkhir-43608738b?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank">
               <FaLinkedinIn className="hover:text-primary transition-colors duration-300 cursor-pointer" size={20} />
+            </Link>
+            <Link href="https://www.github.com/OCT-Ahmed" target="_blank">
+              <FaGithub className="hover:text-primary transition-colors duration-300 cursor-pointer" size={20} />
             </Link>
             <Link  href="mailto:ahmedkhyr.develop@gmail.com">
               <Mail className="hover:text-primary transition-colors duration-300 cursor-pointer" size={20} />
