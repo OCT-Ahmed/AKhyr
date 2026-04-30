@@ -12,7 +12,7 @@ const HomePage = () => {
         <p className="font-inter text-muted leading-[1.6em]">I'm trying to build my future from zero. I'm Ahmed.. a Sudanese student who want to chase his dreams. And have a chance to study in a college</p>
         {/* CTA BUTTONS */}
         <div className="flex gap-4 mt-6">
-          <Link href="/subscription">
+          <Link href="/subscriptions">
             <button className="text-white bg-primary px-8 py-3 rounded-xl hover:bg-primary/75 transition-all duration-300 cursor-pointer" id="cta-button">
               Join Our Story
             </button>
