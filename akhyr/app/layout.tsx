@@ -84,16 +84,16 @@ export default function RootLayout({
         </nav>
           {/* Social Media */}
           <div className="flex items-start justify-center gap-6 py-2">
-            <Link href="https://tiktok.com" target="_blank">
+            <Link href="https://www.tiktok.com/@some_._._one?_r=1&_t=ZS-95yC0x3rfwf" target="_blank">
               <FaTiktok className="hover:text-primary transition-colors duration-300 cursor-pointer" size={20} />
             </Link>
-            <Link href="https://whatsapp.com" target="_blank">
+            <Link href="https://wa.me/message/RCAKWUL4WLOWF1" target="_blank">
               <FaWhatsapp className="hover:text-primary transition-colors duration-300 cursor-pointer" size={20} />
             </Link>
-            <Link href="https://linkedin.com" target="_blank">
+            <Link href="https://www.linkedin.com/in/ahmed-elkhir-43608738b?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank">
               <FaLinkedinIn className="hover:text-primary transition-colors duration-300 cursor-pointer" size={20} />
             </Link>
-            <Link  href="https://ahmedkhyr.develop@gmail.com" target="_blank">
+            <Link  href="mailto:ahmedkhyr.develop@gmail.com">
               <Mail className="hover:text-primary transition-colors duration-300 cursor-pointer" size={20} />
             </Link>
             
