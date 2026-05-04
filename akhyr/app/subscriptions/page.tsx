@@ -1,40 +1,67 @@
 'use client'
 import { useState } from 'react';
+import PaymentButton from '@/features/payment/components/PaymentButton';
 import { ArrowUpRightIcon, Coffee, Rocket, Star } from "lucide-react"
 import Link from "next/link"
 import { Check, Zap, Heart } from 'lucide-react';
 
-const pricingData = {
+interface PricingTier {
+  monthly: [{
+    title: string;
+    displayPrice: string;
+    numericPrice: string;
+    tagline: string;
+    features: string[];
+    buttonText: string;
+    isPopular: boolean;
+    planId?: string;
+  }],
+
+  once:  {
+    title: string;
+    displayPrice: string;
+    numericPrice: string;
+    tagline: string;
+    features: string[];
+    buttonText: string;
+    isPopular: boolean;
+    planId?: string;
+  }[],
+}
+const pricingData: PricingTier = {
   monthly: [
     {
       title: "The Spark",
-      price: "$3",
+      displayPrice: "$3",
+      numericPrice: "3.00",
+      planId: "",
       tagline: "Fuel the daily grind.",
       features: ["Hand-written digital thank you", "Exclusive minimalist wallpapers", "Your name on the Wall of Fame"],
       buttonText: "Support Monthly",
       isPopular: false
     },
-    {
-      title: "The Architect",
-      price: "$10",
-      tagline: "Build the future with me.",
-      features: ["Everything in Spark", "Behind-the-scenes Dev logs", "Vote on upcoming features"],
-      buttonText: "Become a Partner",
-      isPopular: true
-    },
-    {
-      title: "The Visionary",
-      price: "$25",
-      tagline: "Invest in a dream.",
-      features: ["Everything in Architect", "Special credit in Source Code", "Monthly 1-on-1 progress sync"],
-      buttonText: "Make an Impact",
-      isPopular: false
-    }
+    // {
+    //   title: "The Architect",
+    //   price: "$10",
+    //   tagline: "Build the future with me.",
+    //   features: ["Everything in Spark", "Behind-the-scenes Dev logs", "Vote on upcoming features"],
+    //   buttonText: "Become a Partner",
+    //   isPopular: true
+    // },
+    // {
+    //   title: "The Visionary",
+    //   price: "$25",
+    //   tagline: "Invest in a dream.",
+    //   features: ["Everything in Architect", "Special credit in Source Code", "Monthly 1-on-1 progress sync"],
+    //   buttonText: "Make an Impact",
+    //   isPopular: false
+    // }
   ],
   once: [
     {
       title: "Quick Coffee",
-      price: "$5",
+      displayPrice: "$5",
+      numericPrice: "5.00",
       tagline: "A small boost for a big day.",
       features: ["Instant gratitude", "Name on the Wall of Fame", "Supporter recognition"],
       buttonText: "Buy a Coffee",
@@ -42,25 +69,26 @@ const pricingData = {
     },
     {
       title: "Hardware Fund",
-      price: "$50",
+      displayPrice: "$50",
+      numericPrice: "50.00",
       tagline: "Help me upgrade my gear.",
       features: ["Everything in Quick Coffee", "Personalized video shout-out", "Early access to new apps"],
       buttonText: "Support the Tech",
       isPopular: true
     },
-    {
-      title: "The Leap",
-      price: "$100",
-      tagline: "Creating a massive shift.",
-      features: ["Lifetime credit on my site", "Exclusive 'Founding Member' role", "Influence on project roadmaps"],
-      buttonText: "Back the Vision",
-      isPopular: false
-    }
+    // {
+    //   title: "The Leap",
+    //   price: "$100",
+    //   tagline: "Creating a massive shift.",
+    //   features: ["Lifetime credit on my site", "Exclusive 'Founding Member' role", "Influence on project roadmaps"],
+    //   buttonText: "Back the Vision",
+    //   isPopular: false
+    // }
   ]
 };
 
 const SubscriptionsPage = () => {
-  // الحالة المسؤولة عن التبديل بين الشهري والدفع لمرة واحدة
+  // monthly & annualy trigger logic
   const [isMonthly, setIsMonthly] = useState(true);
 
   return (
@@ -113,7 +141,7 @@ const SubscriptionsPage = () => {
             <p className="text-gray-400 text-sm mb-6 min-h-[40px]">{tier.tagline}</p>
 
             <div className="flex items-baseline gap-1 mb-8">
-              <span className="text-4xl font-black text-white">{tier.price}</span>
+              <span className="text-4xl font-black text-white">{tier.numericPrice}</span>
               {isMonthly && <span className="text-gray-500 text-sm font-medium">/mo</span>}
             </div>
 
@@ -126,9 +154,9 @@ const SubscriptionsPage = () => {
               ))}
             </ul>
 
-            <button className={`w-full py-4 rounded-2xl font-bold transition-all active:scale-95 ${tier.isPopular ? "bg-primary text-white hover:opacity-90 shadow-[0_10px_20px_-10px_rgba(var(--color-primary),0.5)]" : "bg-white/10 text-white hover:bg-white/20"}`}>
-              {tier.buttonText}
-            </button>
+            <div className="mt-4 w-full relative z-10">
+              <PaymentButton type={isMonthly ? "monthly" : "once"} price={tier.numericPrice} planId={tier.planId || ""} />
+            </div>
           </div>
         ))}
       </div>
