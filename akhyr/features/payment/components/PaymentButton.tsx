@@ -4,12 +4,20 @@ import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 // This component recive 3 three inputs: price, plan id and type of payment
 
 const PaymentButton = ({type, price, planId }: {type: "monthly" | "once"; price:string; planId?:string }) => {
+
+    const [mounted, setMounted] = React.useState(false);
+    React.useEffect(() => {
+        setMounted(true);
+    }, [])
+
+    if (!mounted) return null;
+
     // PayPal setup options
     const initialOptions = {
         clientId: process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID || "",
         currency: "USD",
         intent: type === "once" ? "capture" : "subscription",
-        valut: type === "monthly" ? true : false,
+        vault: type === "monthly" ? true : false,
     }
 
     return (

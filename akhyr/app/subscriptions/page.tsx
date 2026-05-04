@@ -141,7 +141,7 @@ const SubscriptionsPage = () => {
             <p className="text-gray-400 text-sm mb-6 min-h-[40px]">{tier.tagline}</p>
 
             <div className="flex items-baseline gap-1 mb-8">
-              <span className="text-4xl font-black text-white">{tier.numericPrice}</span>
+              <span className="text-4xl font-black text-white">{tier.displayPrice}</span>
               {isMonthly && <span className="text-gray-500 text-sm font-medium">/mo</span>}
             </div>
 
@@ -154,7 +154,7 @@ const SubscriptionsPage = () => {
               ))}
             </ul>
 
-            <div className="mt-4 w-full relative z-10">
+            <div className="mt-4 w-full relative ">
               <PaymentButton type={isMonthly ? "monthly" : "once"} price={tier.numericPrice} planId={tier.planId || ""} />
             </div>
           </div>
