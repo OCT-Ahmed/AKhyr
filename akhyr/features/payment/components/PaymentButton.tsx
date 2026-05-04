@@ -6,7 +6,7 @@ import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 const PaymentButton = ({type, price, planId }: {type: string; price:string; planId:string }) => {
     // PayPal setup options
     const initialOptions = {
-        "client-id": process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID,
+        clientId: process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID ,
         currency: "USD",
         intent: type === "once" ? "capture" : "subscription",
         valut: type === "monthly" ? true : false,
@@ -28,12 +28,13 @@ const PaymentButton = ({type, price, planId }: {type: string; price:string; plan
                 //------------------------------------------------------------
                 createOrder={type === "once" ? (data, actions) => {
                     return actions.order.create({
+                        intent: "CAPTURE",
                         purchase_units: [
-                            {
+                            { 
                                 amount: {
                                     value: price, // we pass the value like 
                                     // "$5.00"
-                                    
+                                    currency_code: "USD",
                                 },
                             },
                         ],
@@ -47,7 +48,7 @@ const PaymentButton = ({type, price, planId }: {type: string; price:string; plan
                 // After payment approval logic 
                 //------------------------------------------------------------
                 onApprove={(data, actions) => {
-                    if (type == "once") {
+                    if (type === "once") {
                         return actions?.order?.capture().then((details) => {
                             alert(`Thank you for your support, ${details.payer?.name?.given_name}!`);
                             // Below, you can redirect the user to a thank you page
@@ -55,7 +56,9 @@ const PaymentButton = ({type, price, planId }: {type: string; price:string; plan
                     } else {
                         alert("Thank you for subscribing! You are now a partner.")
                         // Here you can grant the user subscription privileges
+                        
                     }
+                    return Promise.resolve();
                 }}
             />
         </PayPalScriptProvider>
