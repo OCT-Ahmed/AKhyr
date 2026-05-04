@@ -3,7 +3,7 @@ import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
 // This component recive 3 three inputs: price, plan id and type of payment
 
-const PaymentButton = ({type, price, planId }: {type: string; price:string; planId:string }) => {
+const PaymentButton = ({type, price, planId }: {type: "monthly" | "once"; price:string; planId?:string }) => {
     // PayPal setup options
     const initialOptions = {
         clientId: process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID || "",
@@ -44,6 +44,9 @@ const PaymentButton = ({type, price, planId }: {type: string; price:string; plan
                 // monthly subscription logic 
                 //-----------------------------------------------------------
                 createSubscription={type !== "once" ? (data, actions) => {
+                    if (!planId) {
+                        throw new Error("Missing planId for PayPal subscription");
+                    }
                     return actions.subscription.create({
                         plan_id: planId
                     });
