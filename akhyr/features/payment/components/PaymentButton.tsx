@@ -42,24 +42,29 @@ const PaymentButton = ({type, price, planId }: {type: string; price:string; plan
                 } : undefined }
                 // ----------------------------------------------------------- 
                 // monthly subscription logic 
-                //------------------------------------------------------------
+                //-----------------------------------------------------------
+                createSubscription={type !== "once" ? (data, actions) => {
+                    return actions.subscription.create({
+                        plan_id: planId
+                    });
+                } : undefined}
 
                 // ----------------------------------------------------------- 
                 // After payment approval logic 
                 //------------------------------------------------------------
-                onApprove={(data, actions) => {
+                onApprove={async (data, actions) => {
                     if (type === "once") {
-                        return actions?.order?.capture().then((details) => {
+                        const details = await actions?.order?.capture();
+                        if (details) {
                             alert(`Thank you for your support, ${details.payer?.name?.given_name}!`);
                             // Below, you can redirect the user to a thank you page
-                        }); 
+                        }
                     } else {
                         alert("Thank you for subscribing! You are now a partner.")
                         // Here you can grant the user subscription privileges
                         
                     }
-                    return Promise.resolve();
-                }}
+                }} 
             />
         </PayPalScriptProvider>
     );
